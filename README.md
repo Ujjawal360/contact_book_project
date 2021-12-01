@@ -1,2 +1,11 @@
 # contact_book_project
 Contact book is like database where you store people's details (name, email, contact number). These need to stored and we should be able to look up the people's details anytime we like. I have used Pandas dataframe to create this project.
+
+Approach i went through:
+Contact book is something you would look into anytime even when the runtime has disconnected. So i decided to store my contacts in human unreadable form using pickle. Using the pickle method you can access the previous stored contacts and make changes to it.
+
+First of all i created a empty dataframe on which i will append the contacts. For adding the contacts, i used Regex(Regular Expression) so that i get proper name , proper phone number(10 digit number) , and proper email.
+
+After i got valid entity, i appended the contacts to the dataframe and if previous contacts are there i appended to that dataframe. Practically, in a proper contact book directory a person name can repeat but the phone number and the email has to belong to a particular person. So i accepted duplicate names in my contact book but i rejected the same phone number or email being repeated twice. On searching or updating or deleting the contacts you can search the identity by any of it's entity (i.e you can search a person details by either his/her name/phone number or email) . Basically, a name to a person cannot be it's unique identity. So for updating and deleting the contact, you should enter the row-id (which is the default indexing in the pandas dataframe in this case). For updating the contact , you can update only one entity at a time. Once you have chosen which details to update, you cannot enter the same details again because the contact already exists in the dataframe. So moving onto the code, run all codes from the beginning, including installing the pickle5 module(pre installed pickle module gave me a bit of trouble) , and of-course mounting the google drive so that the pickle file is stored in your drive.
+
+I also want to clarify that , inside the functions i have globalized some variables because inside the functions i have created some variables and to access those variable which i need outside of functions has to be globalized.
